@@ -1,4 +1,3 @@
-exclude: migrations
 default_stages: [ pre-commit ]
 fail_fast: true
 default_language_version:
