@@ -30,7 +30,7 @@ documentation is available in development mode.
 Configuration is stored in `.env`, for examples see `.env.example`
 
 
-## Run server locally:
+## Running the Application Locally:
 ### Install requirements:
 
 ```bash
@@ -41,6 +41,22 @@ pip install -r requirements.txt
 python run.py
 ```
 
+### Swagger documentation:
+http://localhost:8000/api/docs
+
+
 ## Docker
-Then run the following command in the same directory as the `docker-compose.yml` file to start the container.
-`docker compose up -d`
+Run the following command in the same directory as the `docker-compose.yml` file to start the container.
+`docker compose up --build -d`
+
+If you need to modify the .env file directly inside the running Docker container, follow these steps.
+
+- Enter the running container
+`docker exec -it retailcrm-client-orders-app sh`
+- Edit the .env file
+`nano .env`
+- Update the required fields:
+RETAILCRM_SUBDOMAIN=your_real_subdomain
+RETAILCRM_API_KEY=your_real_api_key
+- Restart the container to apply changes
+`docker compose restart`

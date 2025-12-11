@@ -3,7 +3,7 @@ FROM python:3.12-slim
 EXPOSE 8000
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc libpq-dev curl \
+    build-essential gcc libpq-dev curl nano \
     && rm -rf /var/lib/apt/lists/*
 
 
