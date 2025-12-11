@@ -1,0 +1,9 @@
+services:
+
+  api:
+    build: .
+    container_name: retailcrm-client-orders-app
+    ports:
+      - "8000:80"
+    command: ["bin/entrypoint.sh"]
+    restart: unless-stopped
