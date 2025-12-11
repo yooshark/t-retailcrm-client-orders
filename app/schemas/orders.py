@@ -24,11 +24,19 @@ class OrderCreate(ValidatedCamelCaseSchema):
     customer: OrderCustomerInfo
     items: list[OrderProductIn]
     number: str
+    site: Annotated[
+        str,
+        Field(
+            description="Символьный код магазина",
+        ),
+    ]
+
 
 class OrderCreatedResponse(BaseModel):
     id: int
     success: bool
     order: OrderId
+
 
 class OrderResponse(OrderCreate, OrderId):
     pass
@@ -39,6 +47,12 @@ class PaymentCreate(ValidatedCamelCaseSchema):
     amount: Annotated[Decimal, Field(ge=0, lt=10000000, decimal_places=3)]
     type: str = "cash"
     comment: str | None = None
+    site: Annotated[
+        str,
+        Field(
+            description="Символьный код магазина",
+        ),
+    ]
 
 
 class PaymentCreatedResponse(BaseModel):
